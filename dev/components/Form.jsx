@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import axios from 'axios';
+
 const BASEURL = 'http://localhost:4000/api';
 
 class Form extends Component {
@@ -23,19 +25,24 @@ class Form extends Component {
   handleSubmit(event){
     event.preventDefault();
     let formInput = this.state.formInput;
+    const url = `${BASEURL}/sortinator`;
 
-    fetch(`${BASEURL}/sortinator`, {
-      method: 'post',
-      body: JSON.stringify({ formInput })
+    axios.post(url, {formInput})
+      .then(response => {
+        console.log("The response is ", response);
+      });
+
+    this.setState({
+      formInput: ''
     });
 
   }
 
   render(){
     return(
-      <form onSubmit={this.handleForm}>
+      <form onSubmit={this.handleSubmit}>
         <label>Input a Word to Sort</label>
-        <input type="text" />
+        <input value={this.state.formInput} onChange={this.handleForm} type="text" />
         <button>Submit</button>
       </form>
     )

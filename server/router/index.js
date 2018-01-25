@@ -5,6 +5,7 @@ Router.get('/', (req, res) => {
 });
 
 Router.post('/sortinator', (req, res) => {
+  console.log("req is ", req.body)
   res.send("hit api");
 });
 
