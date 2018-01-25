@@ -18298,6 +18298,8 @@ var _axios = __webpack_require__(35);
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _utils = __webpack_require__(54);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18337,7 +18339,10 @@ var Form = function (_Component) {
     key: 'handleSubmit',
     value: function handleSubmit(event) {
       event.preventDefault();
-      var formInput = this.state.formInput;
+
+      //sanitize form input
+      var formInput = (0, _utils.escapeHtml)(this.state.formInput);
+
       var url = BASEURL + '/sortinator';
 
       _axios2.default.post(url, { formInput: formInput }).then(function (response) {
@@ -19942,6 +19947,34 @@ module.exports = function spread(callback) {
   };
 };
 
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.escapeHtml = escapeHtml;
+var entityMap = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;',
+  '/': '&#x2F;',
+  '`': '&#x60;',
+  '=': '&#x3D;'
+};
+
+function escapeHtml(string) {
+  return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+    return entityMap[s];
+  });
+}
 
 /***/ })
 /******/ ]);

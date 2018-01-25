@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {escapeHtml} from './utils.js';
 
 const BASEURL = 'http://localhost:4000/api';
 
@@ -24,7 +25,10 @@ class Form extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    let formInput = this.state.formInput;
+    
+    //sanitize form input
+    let formInput =  escapeHtml(this.state.formInput);
+    
     const url = `${BASEURL}/sortinator`;
 
     axios.post(url, {formInput})
