@@ -20020,6 +20020,8 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactMaterialize = __webpack_require__(68);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var entityMap = {
@@ -20042,13 +20044,9 @@ function escapeHtml(string) {
 function renderSortedStrings(sortedArr) {
   return sortedArr.map(function (str, idx) {
     return _react2.default.createElement(
-      'tr',
+      _reactMaterialize.CollectionItem,
       { key: idx },
-      _react2.default.createElement(
-        'td',
-        null,
-        str
-      )
+      str
     );
   });
 }
@@ -26076,6 +26074,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _utils = __webpack_require__(54);
 
+var _reactMaterialize = __webpack_require__(68);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var StringCollection = function StringCollection(props) {
@@ -26084,7 +26084,7 @@ var StringCollection = function StringCollection(props) {
   }
 
   return _react2.default.createElement(
-    'tbody',
+    _reactMaterialize.Collection,
     null,
     (0, _utils.renderSortedStrings)(props.sortedArr)
   );

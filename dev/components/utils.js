@@ -1,4 +1,7 @@
 import React from 'react';
+import {CollectionItem} from 'react-materialize';
+
+
 
 const entityMap = {
   '&': '&amp;',
@@ -19,6 +22,6 @@ export function escapeHtml(string) {
 
 
 export function renderSortedStrings(sortedArr){
-  return sortedArr.map((str, idx) =><tr key={idx}><td>{str}</td></tr>);
+  return sortedArr.map((str, idx) =><CollectionItem key={idx}>{str}</CollectionItem>);
 }
 

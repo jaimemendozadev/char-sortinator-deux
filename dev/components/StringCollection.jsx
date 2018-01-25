@@ -1,5 +1,6 @@
 import React from 'react';
 import {renderSortedStrings} from './utils.js';
+import {Collection} from 'react-materialize';
 
 const StringCollection = (props) => {
   if (props.sortedArr.length == 0) {
@@ -7,9 +8,9 @@ const StringCollection = (props) => {
   }
 
   return (
-    <tbody>
+    <Collection>
       {renderSortedStrings(props.sortedArr)}
-    </tbody>
+    </Collection>
   )
 }
 
