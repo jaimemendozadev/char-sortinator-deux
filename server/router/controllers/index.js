@@ -1,5 +1,4 @@
 function sortinator(req, res){
-  console.log("req is ", req.body.formInput)  
   
   let inputArr = req.body.formInput.split(" ");  
   

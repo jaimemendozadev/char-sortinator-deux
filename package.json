@@ -17,7 +17,8 @@
     "express": "^4.16.2",
     "path": "^0.12.7",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-materialize": "^1.1.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
